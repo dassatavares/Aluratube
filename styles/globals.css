@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background-color: #0f0f0f;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -28,20 +29,22 @@ a {
 button{
   width: 100px;
   height: auto;
+  font-weight: bold;
   padding: 10px;
   margin: 0 5px;
   border: 0;
+  border-radius: 100px;
   background-color: red;
   color: white;
-  border-radius: 5px;
   cursor: pointer;
 }
+
 input{
   width: 300px;
   height: auto;
   margin: 0 5px;
+  border-radius: 100px;
   outline: 0;
   border: 1px solid black;
-  padding: 8px 10px;
-  border-radius: 5px;
+  padding: 10px 15px;
 }

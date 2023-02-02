@@ -1,58 +1,96 @@
-import React from "react";
 import { useState } from "react";
+import Image from "next/image";
 
-// CSS  
-import styles from './favoritos.module.css'
+// Imports
+import buttonPlus from '../../../public/images/mais.png'
+
+// CSS
+import styles from "./favoritos.module.css";
 
 const Favoritos = () => {
-
   // Favoritos
   const [github, setGithub] = useState();
 
+  const [search, setSearch] = useState('');
+
   const [favoritos, setFavoritos] = useState([
-    { name: "dassatavares", git_foto: "https://github.com/dassatavares.png" },
+    { name: "", gitFoto: "" },
   ]);
 
   const addUser = (e) => {
-    setFavoritos([...favoritos, { name: `${github}`, git_foto: `https://github.com/${github}.png` }])
-  }
+    setFavoritos([
+      ...favoritos,
+      { name: `${github}`, gitFoto: `https://github.com/${github}.png`, url: `https://github.com/${github}`},
+    ]);
+  };
 
   const deleteUser = (index) => {
     favoritos.splice(index, 1);
     setFavoritos([...favoritos]);
-  }
+  };
 
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false);
 
   return (
     <>
+      <input
+        type="text"
+        placeholder="Procurar..."
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
-      {toggle ?
+      {/* Popup Github */}
+      {toggle ? (
         <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-          <input type="text" placeholder="Digite seu usuario do Github" onChange={(e)=> setGithub(e.target.value)} />
-          <button type="submit" className="button-delete" onClick={addUser}>OK</button>
-          <button type="submit" className="button-delete" onClick={() => setToggle(false)}>X</button>
-        </form> : ''
-      }
+          <input
+            type="text"
+            placeholder="Digite seu usuario do Github"
+            onChange={(e) => setGithub(e.target.value)}
+          />
+          <button type="submit" className="button-delete" onClick={addUser}>
+            OK
+          </button>
+          <button
+            type="submit"
+            className="button-delete"
+            onClick={() => setToggle(false)}
+          >
+            X
+          </button>
+        </form>
+      ) : (
+        ""
+      )}
 
+      {/* Popup Github */}
       <div className={styles.favoritos}>
         <h2>Canais Recomendados</h2>
-        {favoritos.map(
-          (favorito, index) => (
-            <div className={styles.user} key={index}>
-              <img src={favorito.git_foto} alt="" />
-              <button onClick={() => deleteUser(index)} className={styles.button_delete}>X</button>
-              <h4>{favorito.name}</h4>
-            </div>
-          )
-        )}
-        
+        {favoritos.filter((fav) => (
+          fav.name.includes(`${search}`)
+        )).map((favorito, index) => (
+            <a href={favorito.url} target='_blank' >
+              <div className={styles.user} key={index}>
+                <img src={favorito.gitFoto} alt="" />
+                <button
+                  onClick={() => deleteUser(index)}
+                  className={styles.button_delete}
+                > X
+                </button>
+                <h4>{favorito.name}</h4>
+              </div>
+            </a>
+          ))}
+
         <div className={styles.user}>
-          <img src="https://cdn-icons-png.flaticon.com/512/7794/7794550.png" alt="" onClick={() => setToggle(true)} />
+          <Image
+            className={styles.add_button}
+            src={buttonPlus}
+            alt=""
+            onClick={() => setToggle(true)}
+          />
           <h4>Adicionar</h4>
         </div>
       </div>
-
     </>
   );
 };
