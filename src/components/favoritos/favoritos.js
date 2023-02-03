@@ -14,7 +14,7 @@ const Favoritos = () => {
   const [search, setSearch] = useState('');
 
   const [favoritos, setFavoritos] = useState([
-    { name: "", gitFoto: "" },
+    { name: "dassatavares", gitFoto: "https://github.com/dassatavares.png", url: "https://github.com/dassatavares"},
   ]);
 
   const addUser = (e) => {
@@ -33,12 +33,6 @@ const Favoritos = () => {
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="Procurar..."
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
       {/* Popup Github */}
       {toggle ? (
         <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
@@ -64,21 +58,30 @@ const Favoritos = () => {
 
       {/* Popup Github */}
       <div className={styles.favoritos}>
-        <h2>Canais Recomendados</h2>
+        <h2>Githubs Recomendados</h2>
+
+        <div>
+          <input
+          type="text"
+          placeholder="Procurar..."
+          onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+        
         {favoritos.filter((fav) => (
           fav.name.includes(`${search}`)
         )).map((favorito, index) => (
-            <a href={favorito.url} target='_blank' >
-              <div className={styles.user} key={index}>
+            <div className={styles.user} key={index}>
+              <a href={favorito.url} target='_blank' >
                 <img src={favorito.gitFoto} alt="" />
-                <button
-                  onClick={() => deleteUser(index)}
-                  className={styles.button_delete}
-                > X
-                </button>
-                <h4>{favorito.name}</h4>
-              </div>
-            </a>
+              </a>
+              <button
+                onClick={() => deleteUser(index)}
+                className={styles.button_delete}
+              > X
+              </button>
+              <h4>{favorito.name}</h4>
+            </div>
           ))}
 
         <div className={styles.user}>
