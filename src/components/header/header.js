@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 // Import
 import logo from '../../../public/images/logo.png'
+import search from '../../../public/images/search.png'
 
 // CSS 
 import styles from './header.module.css'
@@ -14,12 +15,12 @@ const Header = () => {
         <div className={styles.logo}>
           <Image src={logo} alt="" />
         </div>
-        <div className="search_bar">
+        <div className={styles.search_bar}>
           <input type="text" placeholder='Buscar...' />
-          <button>Procurar</button>
+          <button><Image src={search} alt="" /></button>
         </div>
-        <div className="theme_mode">
-          <button>Dark</button>
+        <div className={styles.user}>
+          <img src="https://github.com/dassatavares.png" alt="" />
         </div>
       </header>
     </>

@@ -58,7 +58,7 @@ const Favoritos = () => {
 
       {/* Popup Github */}
       <div className={styles.favoritos}>
-        <h2>Githubs Recomendados</h2>
+        <h2>Github's Recomendados</h2>
 
         <div>
           <input

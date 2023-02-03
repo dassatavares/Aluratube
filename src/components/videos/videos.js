@@ -8,32 +8,32 @@ const Videos = () => {
   const [videos, setVideos] = useState([{
     thumbNail: 'https://i.ytimg.com/vi/fHI8X4OXluQ/maxresdefault.jpg',
     videoName: 'The Weeknd - Blinding Lights (Official Video)',
-    channelName: 'Carlos Rubens',
-    views: '152k Vizualizações',
+    channelName: 'The Weeknd',
+    views: '152k vizualizações',
     link: 'https://www.youtube.com/watch?v=4NRXx6U8ABQ&ab_channel=TheWeekndVEVO'
   },{
     thumbNail: 'https://i1.sndcdn.com/artworks-000103577879-bi5ki8-t500x500.jpg',
     videoName: 'Reflekt Feat. Delline Bass - Need To Feel Loved (Adam K & Soha Vocal Mix)',
     channelName: 'Reflekt',
-    views: '12m Vizualizações',
+    views: '12m vizualizações',
     link: 'https://www.youtube.com/watch?v=zXkbi-ddZXM&ab_channel=Reflekt-Topic'
   },{
     thumbNail: 'https://static.qobuz.com/images/covers/82/55/0073145305582_600.jpg',
     videoName: 'Got To Be There',
     channelName: 'Michael Jackson',
-    views: '875k Vizualizações',
+    views: '875k vizualizações',
     link: 'https://youtu.be/Y9cixo-iXAE?list=RDY9cixo-iXAE'
   },{
     thumbNail: 'https://i.ytimg.com/vi/7V7YPXo8otI/maxresdefault.jpg',
     videoName: 'Nunca foi sorte, sempre foi Deus | Kaisser | Wagão',
     channelName: 'Wagão',
-    views: '15m Vizualizações',
+    views: '15m vizualizações',
     link: 'https://youtu.be/7V7YPXo8otI?list=RD7V7YPXo8otI'
   },{
     thumbNail: 'https://i.ytimg.com/vi/DYXaHK4woto/maxresdefault.jpg',
-    videoName: 'The Weeknd - Blinding Lights (Official Video)',
-    channelName: 'Carlos Rubens',
-    views: '798k Vizualizações',
+    videoName: 'Eli Soares - Ele é',
+    channelName: 'Eli Soares',
+    views: '798k vizualizações',
     link: 'https://youtu.be/DYXaHK4woto?list=RD7V7YPXo8otI'
   },])
 
